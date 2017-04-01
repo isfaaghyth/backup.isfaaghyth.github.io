@@ -38,7 +38,7 @@ Kasusnya seperti ini, saya memiliki 2 endpoint yang berbeda:
 
 GET /dataku
 
-{% highlight json %}
+```json
 [
    {
       id: 0,
@@ -50,11 +50,11 @@ GET /dataku
    },
    {...}
 ]
-{% endhighlight %}
+```
 
 GET /dataku_lengkap/1
 
-{% highlight json %}
+```json
 {
    id: 1,
    name: "data B",
@@ -62,8 +62,9 @@ GET /dataku_lengkap/1
    {...}
 }
 {% endhighlight %}
+```
 
-Di aplikasi saya, saya harus menampilkan atribut `name` lengkap dengan `type` nya, sedangkan untuk mendapatkan `type` nya, kita harus melakukan _request_ lagi di endpoint yang berbeda. Dari kasus tersebut, kita dapat mengimplementasi paradigma ini agar dapat melakukan _multiple request_ secara periodik atau _sequence_.
+Di tampilannya, saya harus menampilkan atribut `name` lengkap dengan `type` nya, sedangkan untuk mendapatkan `type` nya, kita harus melakukan _request_ lagi di endpoint yang berbeda. Dari kasus tersebut, kita dapat mengimplementasi paradigma ini agar dapat melakukan _multiple request_ secara periodik atau _sequence_.
 
 
 ### Implementasi
