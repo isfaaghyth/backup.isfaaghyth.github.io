@@ -1,3 +1,10 @@
+---
+layout:     post
+title:      Cara Instal Yii2 dengan Composer
+date:       2017-04-02
+summary:    
+categories: Web
+---
 Yii2 adalah salah satu web framework yang sudah melegenda di bahasa pemrograman PHP. Yii2 pun cukup banyak diminati oleh perusahaan dan web developer di Indonesia. Lowongan kerja yang membutuhkan Yii2 pun tidak sedikit bermunculan. Sebagai web framework yang memiliki komunitas kuat, Yii2 lahir dengan sejumlah perbaikan dan penambahan fitur baru. Salah satu kekuatan Yii2 yang lain adalah, dokumentasi yang terstruktur dan lengkap sehingga pengguna Yii v1.x dapat menyesuaikan kembali source code-nya dengan v2.x. Bagi pemula Yii2 memiliki sebuah _cookbook_ yang cukup jelas dan lengkap namun masih dalam Bahasa Inggris.
 
 ## Instalasi
