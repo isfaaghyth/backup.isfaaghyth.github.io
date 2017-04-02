@@ -17,7 +17,7 @@ Untuk pengimplementasiannya, kita menggunakan _library_ [ReactiveX](http://react
 
 Yang hebat dari library ini, ReactiveX mendukung dibeberapa bahasa pemrograman. Kamu bisa cek di situs resminya disini [www.reactivex.io](http://www.reactivex.io).
 
-Di ReactiveX ada beberapa operator yang wajib kita ketahui untuk mengimplementasi _Reactive paradigm_ ini. Ada banyak operator yang disediakan untuk ReactiveX ini. Operator yang paling sering saya gunakan, yaitu:
+Di ReactiveX, ada banyak operator yang bisa kamu terapkan untuk _Reactive paradigm_ ini. Operator yang paling sering saya gunakan, yaitu:
 
 - SubscribeOn
 - ObserveOn
@@ -32,11 +32,11 @@ Nah, sebenarnya pada saat kapan sih kamu gunakan dan menerapkan **Reactive** ini
 
 Kasus sederhana yang pernah saya alami, yaitu:
 
-Multiple Request
+**Multiple Request**
 
 Kasusnya seperti ini, saya memiliki 2 endpoint yang berbeda:
 
-GET /dataku
+**`GET`** /dataku
 
 ```json
 [
@@ -52,7 +52,7 @@ GET /dataku
 ]
 ```
 
-GET /dataku_lengkap/1
+**`GET`** /dataku_lengkap/1
 
 ```json
 {
@@ -61,35 +61,116 @@ GET /dataku_lengkap/1
    type: "Document",
    {...}
 }
-{% endhighlight %}
 ```
 
-Di tampilannya, saya harus menampilkan atribut `name` lengkap dengan `type` nya, sedangkan untuk mendapatkan `type` nya, kita harus melakukan _request_ lagi di endpoint yang berbeda. Dari kasus tersebut, kita dapat mengimplementasi paradigma ini agar dapat melakukan _multiple request_ secara periodik atau _sequence_.
+Di dalam aplikasinya, saya harus menampilkan atribut `name` lengkap dengan `type` nya, sedangkan untuk mendapatkan `type` nya, kita harus melakukan _request_ lagi di endpoint yang berbeda. Dari kasus tersebut, kita dapat mengimplementasikan paradigma ini agar dapat melakukan _multiple request_ secara periodik atau _sequence_.
 
+Contoh kasus kedua, ketika saya melakukan `POST` dan setelah itu data yang ada pada _list_ harus diperbaharui dengan data yang baru `GET` di satu waktu yang sama.
 
 ### Implementasi
 
 Sebelum memulai, silahkan tambahkan ReactiveX kedalam _project_ kamu:
 
 {% highlight java %}
-compile "io.reactivex.rxjava2:rxjava:2.0.8"
+compile 'io.reactivex:rxjava:1.1.6'
+compile 'io.reactivex:rxandroid:1.2.1'
 {% endhighlight %}
 
 Pertama, ita harus tahu dahulu bagaimana cara mendeklarasikannya. Ada beberapa cara untuk pendeklarasian ReactiveX ini.
 
 Cara pertama.
 
-{% highlight java %}
-Observable<String> belajarRxString = Observable.just("Hai, Selamat Datang.");
-{% endhighlight %}
+```java
+Observable<String> helloWorldObservable = Observable.just("Hai, Selamat Datang.");
+```
 
-Atau seperti ini.
+Cara kedua seperti ini.
 
-{% highlight java %}
+```java
 Observable<Integer> integerListObservable = Observable.create(new Observable.OnSubscribe<Integer>() {
     @Override public void call(Subscriber<? super Integer> subscriber) {
         subscriber.onNext(1); //data nya
         subscriber.onCompleted();
     }
 });
-{% endhighlight %}
+```
+
+Atau dengan object yang kita buat sendiri. Misalkan seperti ini.
+
+```java
+public class Pegawai {
+   private String nama;
+   private String jenisKelamin;
+
+   public Pegawai(String nama, String jenisKelamin) {
+      this.nama = nama;
+      this.jenisKelamin = jenisKelamin;
+   }
+   // getter
+}
+```
+
+Implementasi pada object diatas seperti ini.
+
+```java
+Pegawai pegawai = new Pegawai("Isfa", "L");
+Observable<Pegawai> pegawaiObservable = Observable.just(pegawai);
+```
+
+Sekarang kita coba menggunakan salah satu operator dari ReactiveX ini. Kasus sederhana dengan menampilkan bilangan ganjil dari sebuah data `List()` integer. Kasus tersebut menggunakan operator **map()** untuk melakukan _filtering_ berdasarkan data yang ada dalam menetukan bilangan ganjil atau bukan. Contohnya seperti ini.
+
+```java
+StringBuilder stringBuilder = new StringBuilder();
+
+ArrayList<Integer> datas = new ArrayList<>();
+datas.add(1);
+datas.add(2);
+datas.add(3);
+datas.add(4);
+datas.add(5);
+
+Observable<ArrayList> myObservable = Observable.just(datas);
+
+myObservable.map(new Func1<ArrayList, String>() {
+    @Override
+    public String call(ArrayList s) {
+        for (int i = 0; i < datas.size(); i++) {
+            if (datas.get(i)%2 == 1) {
+                stringBuilder.append(datas.get(i) + "\n");
+            }
+        }
+        return stringBuilder.toString();
+    }
+}).subscribe(new Action1<String>() {
+    @Override
+    public void call(String ganjil) {
+        System.out.println(ganjil);
+    }
+});
+```
+
+Dalam penggunaan operator **map()** tersebut, kita memiliki sebuah contoh data dari _variable_ `datas()` dengan tipe data ArrayList(). Setelah itu, `datas()` dimasukkan kedalam observable:
+
+```java
+Observable<ArrayList> myObservable = Observable.just(datas);
+```
+
+Lalu, `datas()` akan di proses kedalam operator **map()** untuk menentukan bilangan ganjil atau bukan, dan di masukkan kedalam stringBuilder(). Perlu diperhatikan bahwa, operator **map()** akan mengembalikan sebuah nilai (_return value_) yang sesuai dengan tipe data yang diterapkan di `new Func1<>`.
+
+```java
+myObservable.map(new Func1<ArrayList, String>() {
+   ...
+}
+```
+
+Data yang dikembalikan oleh **map()** kita akan `subscribe()` dan ditampilkan di `new Action1<>`. Maka hasilnya seperti ini.
+
+```js
+1
+3
+5
+```
+
+Itu adalah salah satu contoh penggunaan operator di ReactiveX. Ada banyak operator yang bisa kamu manfaatkan di paradigma ini. Untuk pengenalan ReactiveX cukup sampai disini, pembahasan selanjutnya saya akan mencoba menerapkan ReactiveX untuk request sebuah data di server. Nanti, ReactiveX ini akan dikombinasikan dengan okhttp. Yang belum tahu tentang okhttp, bisa di lihat [disini](https://github.com/square/okhttp).
+
+Ok, cukup sekian. Semoga bermanfaat. :)
