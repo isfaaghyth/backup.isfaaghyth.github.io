@@ -26,7 +26,7 @@ Di ReactiveX, ada banyak operator yang bisa kamu terapkan untuk _Reactive paradi
 
 Untuk operator lainnya, kamu bisa lihat [disini](http://reactivex.io/documentation/operators.html).
 
-### Kasus Sederhana
+## Kasus Sederhana
 
 Nah, sebenarnya pada saat kapan sih kamu gunakan dan menerapkan **Reactive** ini?
 
@@ -67,7 +67,7 @@ Di dalam aplikasinya, saya harus menampilkan atribut `name` lengkap dengan `type
 
 Contoh kasus kedua, ketika saya melakukan `POST` dan setelah itu data yang ada pada _list_ harus diperbaharui dengan data yang baru `GET` di satu waktu yang sama.
 
-### Implementasi
+## Implementasi
 
 Sebelum memulai, silahkan tambahkan ReactiveX kedalam _project_ kamu:
 
