@@ -24,7 +24,7 @@ compile 'com.jakewharton:butterknife:8.5.1'
 compile 'com.squareup.okhttp3:okhttp:3.6.0'
 {% endhighlight %}
 
-`CATATAN: Silahkan set lambda agar memudahkan kamu mengimplementasi rx ini, dan jangan lupa tambahkan permission Internet di Manifest`.
+`CATATAN: Silahkan set lambda di project kamu agar memudahkan dalam mengimplementasi rx ini, dan jangan lupa tambahkan permission Internet di Manifest`.
 
 ## Memulai
 
