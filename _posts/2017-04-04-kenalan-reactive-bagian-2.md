@@ -7,7 +7,7 @@ categories: Java, Android
 ---
 Melanjutkan [artikel sebelumnya](http://isfaa.me/ghiyath/kenalan-reactive-bagian-1), kali ini kita akan mencoba mempelajari **reactive** programming lebih dalam lagi dengan mencoba menyelesaikan contoh kasus yang ada pada bagian pertama. Contoh kasus nya yaitu _**Multiple Request**_.
 
-Untuk API nya, sudah saya siapkan. Kamu bisa akses disini:
+Untuk API nya, saya sudah siapkan. Kamu bisa akses disini:
 ```text
 BASE URL:
 GET http://isfaaghyth.ga/
