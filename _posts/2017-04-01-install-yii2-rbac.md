@@ -28,7 +28,7 @@ Sedangkan untuk macos:
 composer require mdmsoft/yii2-admin "~2.0"
 ```
 
-![](gambar)
+![gambar](https://raw.githubusercontent.com/isfaaghyth/isfaaghyth.github.io/master/images/Screen%20Shot%202017-04-05%20at%202.58.16%20AM.png?token=AGdhd4cIjZ2w3II8z6eOKu3tprCahIKJks5Y7TqrwA%3D%3D)
 
 setelah itu, aktifkan library tersebut dengan cara konfigurasi di `yii2-app/common/config/main.php`.
 
@@ -90,6 +90,6 @@ Seperti ini.
 
 Ketika semua sudah di instal dengan baik, silahkan masuk ke `http://websitemu.dev/backend/web/index.php?r-admin`.
 
-![](gambar).
+![finish](https://raw.githubusercontent.com/isfaaghyth/isfaaghyth.github.io/master/images/Screen%20Shot%202017-04-05%20at%203.19.24%20AM.png?token=AGdhd_SyIODjDYiv9zX8TqcdHubtybDKks5Y7TquwA%3D%3D).
 
 semoga bermanfaat :)
