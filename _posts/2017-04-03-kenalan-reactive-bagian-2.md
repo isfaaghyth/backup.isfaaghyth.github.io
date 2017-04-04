@@ -5,7 +5,7 @@ date:       2017-04-02
 summary:    
 categories: Java, Android
 ---
-Melanjuti [artikel sebelumnya](http://isfaa.me/ghiyath/kenalan-reactive-bagian-1), kali ini kita akan mencoba mempelajari **reactive** programming lebih dalam lagi dengan mencoba menyelesaikan contoh kasus yang ada pada bagian pertama. Contoh kasus nya yaitu _**Multiple Request**_.
+Melanjutkan [artikel sebelumnya](http://isfaa.me/ghiyath/kenalan-reactive-bagian-1), kali ini kita akan mencoba mempelajari **reactive** programming lebih dalam lagi dengan mencoba menyelesaikan contoh kasus yang ada pada bagian pertama. Contoh kasus nya yaitu _**Multiple Request**_.
 
 Untuk API nya, sudah saya siapkan. Kamu bisa akses disini:
 ```text
@@ -17,6 +17,8 @@ GET http://isfaaghyth.ga/detail/{id}
 Pertama, tambahkan ini di gradle.
 
 {% highlight java %}
+compile 'io.reactivex:rxjava:1.1.6'
 compile 'io.reactivex:rxandroid:1.2.1'
-compile 'io.reactivex:rxandroid:1.2.1'
+compile 'com.google.code.gson:gson:2.8.0'
+compile 'com.squareup.okhttp3:okhttp:3.6.0'
 {% endhighlight %}
