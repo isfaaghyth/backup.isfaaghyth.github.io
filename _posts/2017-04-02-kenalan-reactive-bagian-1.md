@@ -173,4 +173,8 @@ Data yang dikembalikan oleh **map()** kita akan `subscribe()` dan ditampilkan di
 
 Itu adalah salah satu contoh penggunaan operator di ReactiveX. Ada banyak operator yang bisa kamu manfaatkan di paradigma ini. Untuk pengenalan ReactiveX cukup sampai disini, pembahasan selanjutnya saya akan mencoba menerapkan ReactiveX untuk request sebuah data di server. Nanti, ReactiveX ini akan dikombinasikan dengan okhttp. Yang belum tahu tentang okhttp, bisa di lihat [disini](https://github.com/square/okhttp).
 
+**UPDATE**
+
+Yuk lanjut [dibagian 2](http://isfaa.me/ghiyath/kenalan-reactive-bagian-2). :D
+
 Ok, cukup sekian. Semoga bermanfaat. :)
